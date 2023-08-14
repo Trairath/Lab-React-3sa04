@@ -7,9 +7,14 @@ export default function Forecast(props) {
     return (
         <View style={styles.textView}>
             <View style={styles.locat}>
-            <Text style={styles.descriptionText}>country name is</Text>
+                <Text style={styles.descriptionText}>country name is</Text>
                 <Text style={styles.txtCountry}>{props.country}</Text> 
             </View >
+            <View style={styles.locat}>
+            <Text style={styles.descriptionText}>pressure is</Text>
+                <Text style={styles.txtCountry}>{props.pressure}</Text>
+            </View>
+            
             <Text style={styles.tempText}>{props.temp} °C</Text>
             <View style={styles.weaters}>
                 <Text style={styles.mainText}>{props.main}</Text>
@@ -35,11 +40,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
-        shadowColor: 'white',
-        shadowOffset: { width: 0,height: 8,},
-        shadowOpacity: 0.44,
-        shadowRadius: 10.32,
-        elevation: 16,
     },
     txtCountry : {
         fontSize: 48,
