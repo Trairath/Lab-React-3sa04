@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "wt-app",
-    "slug": "wt-app",
+    "slug": "wt-app-2566",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b7812af7-f12d-4265-97e7-f61ad8b06430"
+      }
+    },
+    "owner": "trairath"
   }
 }
