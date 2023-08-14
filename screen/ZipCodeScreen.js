@@ -1,6 +1,6 @@
-import React from 'react'
-import { FlatList,View,Text,StyleSheet, TouchableHighlight } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import React from 'react'
+import { View, Text, FlatList, StatusBar, TouchableHighlight, StyleSheet } from 'react-native'
 
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
@@ -8,40 +8,41 @@ const availableZipItems = [
     { place: 'Chiangmai', code: '50000' },
     { place: 'Khonkaen', code: '40000' },
     { place: 'Chonburi', code: '20000' },
-]
-
-const ZipItem = ({place, code, navigation}) => (
+   ]
+   
+   const ZipItem = ({ place, code, navigation }) => (
     <TouchableHighlight onPress={() => {
-        navigation.navigate('Weather',{zipCode:code})
-    }}>
-        <View style={styles.ZipItem}>
-            <Text>{place}</Text>
-            <Text>{code}</Text>
+        navigation.navigate('Weather', { zipCode: code })
+    }} >
+        <View style={styles.zipItem}> 
+            <Text> {place}</Text>
+            <Text> {code}</Text>
         </View>
     </TouchableHighlight>
 )
 
 export default function ZipCodeScreen(){
     const navigation = useNavigation()
-    return (
-            <FlatList
-                data={availableZipItems}
-                keyExtractor={item => item.code}
-                renderItem={({item}) => <ZipItem {...item} />}
-            />
+    return(
+        <FlatList
+            data = {availableZipItems}
+            keyExtractor = {item => item.code}
+            renderItem = {({item}) => <ZipItem{...item} navigation={navigation}/>}
+        />
     )
 }
 
-const styles =StyleSheet.create({
-    ZipItem:{
-        flex: 1,
+const styles = StyleSheet.create({
+    zipItem: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        margin: 10
     },
-    zipPlace:{
+    zipPlace: {
         flex: 1,
     },
-    zipCode:{
+    zipCode: {
         flex: 1,
     }
+    
 })
